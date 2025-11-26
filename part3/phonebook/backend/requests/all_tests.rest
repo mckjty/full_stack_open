@@ -1,0 +1,22 @@
+
+### TEST DELETE
+DELETE http://localhost:3001/api/persons/6926eccb3d1668e2b4d8f34b
+
+### TEST POST
+POST http://localhost:3001/api/persons
+Content-Type: application/json 
+
+{
+    "name": "fds",
+    "number": "97767"
+}
+
+### Get all persons 
+GET http://localhost:3001/api/persons
+
+### Get info
+GET http://localhost:3001/info
+
+### Get ID
+GET http://localhost:3001/api/persons/6917044c03fb13b69f92c339
+
