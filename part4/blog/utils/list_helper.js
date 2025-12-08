@@ -1,3 +1,7 @@
+const Blog = require('../models/blog')
+
+// helper functions for ex 4.1 - 4.7
+
 const dummy = (blogs) => {
   return 1
 }
@@ -51,10 +55,36 @@ const mostLikes = (blogs) => {
     )
 }
 
+// helper functions for ex 4.8 - 4.12
+
+const initialBlogs = [
+  {
+    title: 'Lord of the Rings',
+    author: 'John Doe',
+    url: "http://google.com",
+    likes: 15
+  },
+  {
+    title: 'Harry Potter',
+    author: 'JK Rowling',
+    url: "http://netflix.com",
+    likes: 19
+  }
+]
+
+const blogsInDb = async () => {
+  const blogs = await Blog.find({})
+  return blogs.map(blog => blog.toJSON())
+}
+
+// exports
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   mostBlogs, 
-  mostLikes
+  mostLikes,
+  initialBlogs,
+  blogsInDb
 }
