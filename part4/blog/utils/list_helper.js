@@ -1,4 +1,6 @@
 const Blog = require('../models/blog')
+const User = require('../models/user')
+const bcrypt = require('bcrypt')
 
 // helper functions for ex 4.1 - 4.7
 
@@ -55,26 +57,41 @@ const mostLikes = (blogs) => {
     )
 }
 
-// helper functions for ex 4.8 - 4.12
+// helper functions for ex 4.8 - 4.23
+const initialUser = async () => {
+  const passwordHash = await bcrypt.hash('test', 12)
+  return {
+    username: "testuser",
+    name: "Test User",
+    passwordHash
+  }
+}
 
-const initialBlogs = [
+const initialBlogs = (userId) => [
   {
     title: 'Lord of the Rings',
     author: 'John Doe',
     url: "http://google.com",
-    likes: 15
+    likes: 15,
+    user: userId
   },
   {
     title: 'Harry Potter',
     author: 'JK Rowling',
     url: "http://netflix.com",
-    likes: 19
+    likes: 19,
+    user: userId
   }
 ]
 
 const blogsInDb = async () => {
   const blogs = await Blog.find({})
   return blogs.map(blog => blog.toJSON())
+}
+
+const usersInDb = async () => {
+  const users = await User.find({})
+  return users.map(u => u.toJSON())
 }
 
 // exports
@@ -86,5 +103,7 @@ module.exports = {
   mostBlogs, 
   mostLikes,
   initialBlogs,
-  blogsInDb
+  initialUser,
+  blogsInDb,
+  usersInDb
 }
