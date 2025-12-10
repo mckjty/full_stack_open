@@ -1,0 +1,42 @@
+### Get blogs
+GET http://localhost:3003/api/blogs
+
+### Post blogs
+POST http://localhost:3003/api/blogs
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hY2kiLCJpZCI6IjY5MzgwNTczMTBiZGUzNjJiODA4NmU0NSIsImlhdCI6MTc2NTI5NDU1MiwiZXhwIjoxNzY2NTA0MTUyfQ.ZaHsSRtcNwpsdWLenlZlDRlJBlnP4PXR4GNso1APbXU
+
+{
+    "title": "Lord of the Kings",
+    "author": "John Leopard",
+    "url": "http://google.com",
+    "likes": 15,
+    "user": "6938057310bde362b8086e45"
+}
+
+### Create user
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "maci",
+    "name": "Maciek",
+    "password": "gol"
+}
+
+### Get users
+GET http://localhost:3003/api/users
+
+### Delete blog
+DELETE http://localhost:3003/api/blogs/69387e01392b40f69baa9f6e
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hY2kiLCJpZCI6IjY5MzgwNTczMTBiZGUzNjJiODA4NmU0NSIsImlhdCI6MTc2NTI5NDU1MiwiZXhwIjoxNzY2NTA0MTUyfQ.ZaHsSRtcNwpsdWLenlZlDRlJBlnP4PXR4GNso1APbXU
+
+### Login
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "maci",
+    "password": "gol"
+}
